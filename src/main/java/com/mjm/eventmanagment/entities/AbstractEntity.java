@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
 
 @MappedSuperclass
 public class AbstractEntity {
@@ -16,7 +16,7 @@ public class AbstractEntity {
 	@JsonIgnore
 	@CreationTimestamp
 	@Column(updatable = false)
-	protected Date created;
+	protected Instant created;
 
 	public Long getId() {
 		return id;
@@ -26,11 +26,11 @@ public class AbstractEntity {
 		this.id = id;
 	}
 
-	public Date getCreated() {
+	public Instant getCreated() {
 		return created;
 	}
 
-	public void setCreated(Date created) {
+	public void setCreated(Instant created) {
 		this.created = created;
 	}
 
