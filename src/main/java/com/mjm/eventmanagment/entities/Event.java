@@ -15,11 +15,13 @@ import java.util.Set;
 public class Event extends AbstractEntity {
 
 	private String name;
-	//@JsonProperty("desc")
+//	@JsonProperty("desc") //rename description to desc in Jason
+	@Column(name = "description")
 	private String description;
 	private ZonedDateTime startTime;
 	private ZonedDateTime endTime;
 	private ZoneId zoneId;
+	@Column(name = "STARTED")
 	private Boolean started;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false)
